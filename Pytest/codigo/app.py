@@ -1,5 +1,5 @@
 def bricadeira(numero):
-    if numero == 1:
-        return 1
+    if numero == 5:
+        return 'goiabada'
     return 2
  
