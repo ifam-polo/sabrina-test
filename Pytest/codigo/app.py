@@ -1,7 +1,7 @@
 def bricadeira(numero):
-    if numero < 3:
-        return numero
-    if numero > 4:
+    if numero % 3 == 0:
+        return 'queijo'
+    if numero % 5 == 0:
         return 'goiabada'
-    return 'queijo'
+    return   numero
  
