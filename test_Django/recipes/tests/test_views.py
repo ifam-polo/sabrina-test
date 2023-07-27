@@ -1,7 +1,7 @@
 from django.urls import reverse, resolve
 from recipes import views
 import pytest
-
+from django.test import RequestFactory
 
 # Verificar se a view da home esta sendo renderizada quando acessada pela url
 
@@ -15,11 +15,11 @@ def test_recipe_home_view_returns_status_code_200_ok(client):
     response = client.get(reverse('recipes:home'))
     assert response.status_code == 200
 
-#verificar se a view da home está renderizando o template certo
-def test_recipe_home_view_load_correct(client):
-    response = client.get(reverse('recipes:home'))
-    assert response == '/recipes/pages/home.html'
-
+ # Verificar se o template da home não tem receitas
+@pytest.mark.django_db
+def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(client):
+        response = client.get(reverse('recipes:home'))
+        assert ' <h1>No recipes found here 🥲</h1>' in response.content.decode('utf-8')
 
 #Verificar se a view da category esta sendo renderizada quando acessada pela url
 def test_recipe_view_category_fuction_is_correct():
