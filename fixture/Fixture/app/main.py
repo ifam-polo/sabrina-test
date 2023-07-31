@@ -10,14 +10,14 @@ class Coluna:
         self.tarefas = []
 
     def insere_tarefa(self, tarefa):
-        ...
+        self.tarefas.append(tarefa)
 
     def __repr__(self):
-        return f'Coluna(tarefas={self.tarefas})'
+        return f'Coluna(nome="{self.nome}", tarefas={self.tarefas})'
 
 class Quadro:
-    def __init__(self, colunas=[]):
-        self.colunas = colunas
+    def __init__(self):
+        self.colunas = []
     def inserir_colunas(self, coluna):
         self.colunas.append((coluna))
 
